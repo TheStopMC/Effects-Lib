@@ -1,0 +1,23 @@
+plugins {
+    alias libs.plugins.shadow
+    id 'java'
+}
+
+group = "com.server"
+version = property("projectVersion") as String
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(libs.bundles.main)
+
+    testImplementation(libs.bundles.test)
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
